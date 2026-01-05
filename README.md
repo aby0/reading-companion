@@ -32,23 +32,21 @@ Works as an MCP (Model Context Protocol) server integrated with Claude Desktop.
 
 ## Installation
 
-### Option 1: Install from PyPI (Recommended)
+### Prerequisites
+
+- Python 3.10+
+- [uv](https://docs.astral.sh/uv/) (Python package manager)
+- Claude Desktop
+
+### Setup
 
 ```bash
-pip install reading-companion
-```
-
-Or with uv:
-```bash
-uv pip install reading-companion
-```
-
-### Option 2: Install from Source
-
-```bash
+# Clone the repo
 git clone https://github.com/aby0/reading-companion
 cd reading-companion
-pip install -e .
+
+# Install dependencies
+uv sync
 ```
 
 ### Configure Claude Desktop
@@ -62,18 +60,16 @@ Add to your Claude Desktop config file:
 {
   "mcpServers": {
     "reading-companion": {
-      "command": "reading-companion"
+      "command": "uv",
+      "args": ["--directory", "/path/to/reading-companion", "run", "reading-companion"]
     }
   }
 }
 ```
 
+Replace `/path/to/reading-companion` with the actual path where you cloned the repo.
+
 Restart Claude Desktop. You should see "Reading Companion" in the MCP servers list (hammer icon).
-
-### Prerequisites
-
-- Python 3.10+
-- Claude Desktop
 
 ## Usage
 
@@ -252,12 +248,12 @@ You can have any reading domains you want - they're not hardcoded. During the in
 
 To run the server directly for testing:
 ```bash
-uv run server.py
+uv run reading-companion
 ```
 
 To test with the MCP inspector:
 ```bash
-npx @modelcontextprotocol/inspector uv run server.py
+npx @modelcontextprotocol/inspector uv run reading-companion
 ```
 
 ## License
