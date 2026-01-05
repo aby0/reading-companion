@@ -24,7 +24,7 @@ dependencies = [
 reading-companion = "reading_companion:main"
 
 [project.urls]
-Repository = "https://github.com/yourusername/reading-companion"
+Repository = "https://github.com/aby0/reading-companion"
 
 [build-system]
 requires = ["hatchling"]

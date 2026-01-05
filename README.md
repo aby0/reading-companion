@@ -46,7 +46,7 @@ uv pip install reading-companion
 ### Option 2: Install from Source
 
 ```bash
-git clone https://github.com/yourusername/reading-companion
+git clone https://github.com/aby0/reading-companion
 cd reading-companion
 pip install -e .
 ```
